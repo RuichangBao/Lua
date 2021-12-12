@@ -18,6 +18,25 @@ public static class FileIO
     {
         string luaPath = "Assets/Lua/"+ fileName + ".lua";
         string str = ReadAllText(luaPath);
-        return System.Text.Encoding.UTF8.GetBytes(str);
+        FileStream fileStream = new FileStream(luaPath, FileMode.Open);
+        byte[] data = new byte[fileStream.Length];
+        fileStream.Read(data, 0, data.Length);
+        fileStream.Close();
+        return data;
+        //return System.Text.Encoding.UTF8.GetBytes(str);
     }
+    //public static byte[] ReadLuaFile(string path)
+    //{
+    //    path = Application.dataPath + "/Lua/" + path + ".lua";
+    //    if (!File.Exists(path))
+    //    {
+    //        Debug.LogError("该文件不存在");
+    //        return null;
+    //    }
+    //    FileStream fileStream = new FileStream(path, FileMode.Open);
+    //    byte[] data = new byte[fileStream.Length];
+    //    fileStream.Read(data, 0, data.Length);
+    //    fileStream.Close();
+    //    return data;
+    //}
 }

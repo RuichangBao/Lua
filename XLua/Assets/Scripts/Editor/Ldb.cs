@@ -9,6 +9,6 @@ public class Ldb
     {
         Debug.LogError("热更新");
         //LuaManager.Instance.DoString("Test = require('UI.Test')");
-        LuaManager.Instance.DoString("require'Init'");
+        LuaManager.Instance.DoString();
     }
 }

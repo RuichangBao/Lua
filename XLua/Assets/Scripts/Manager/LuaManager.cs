@@ -21,46 +21,42 @@ public class LuaManager : Single<LuaManager>
         luaEnv.DoString("require'Init'");
     }
 
-    public void DoString(string str)
+    public void DoString()
     {
-        luaEnv.AddLoader(FuncCustomLoader);
-        luaEnv.DoString(str);
+        //luaEnv.AddLoader(FuncCustomLoader);
+        string aaa = "require('Hotfix')";
+        luaEnv.DoString(aaa);
+        luaEnv.DoString("require 'Utils.LuaGlobal'");
     }
 
     private byte[] FuncCustomLoader(ref string filepath)
     {
-        Debug.LogError("加载自定义load：" + filepath);
+        //Debug.LogError("加载自定义load：" + filepath);
         filepath = filepath.Replace(".", "/");
         byte[] data = FileIO.ReadLuaFile(filepath);
         return data;
     }
 
-    public void ClickTest()
-    {
-        //{
-        //    int a = luaEnv.Global.Get<int>("a");
-        //    Debug.LogError(a);
-        //}
-        //LuaGlobal p = luaEnv.Global.Get<LuaGlobal>("LuaGlobal");
-        //Debug.LogError(p.Num);
-        //Test test = luaEnv.Global.Get<Test>("Test");
-        //Debug.LogError(test.sss);
-        int a = luaEnv.Global.Get<int>("a");
-        Debug.LogError(a);
-    }
+    //public void ClickTest()
+    //{
+    //    LuaGlobal p = luaEnv.Global.Get<LuaGlobal>("LuaGlobal");
+    //    Debug.LogError(p.a);
+    //    int a = luaEnv.Global.Get<int>("a");
+    //    Debug.LogError(a);
+    //}
 
-    class Init
-    {
-        public int num;
+    //class Init
+    //{
+    //    public int num;
         
-    }
-    class LuaGlobal
-    {
-        public string Num;
-        public Test test;
-    }
-    class Test
-    {
-        public string sss;
-    }
+    //}
+    //class LuaGlobal
+    //{
+    //    public int a;
+    //    public Test test;
+    //}
+    //class Test
+    //{
+    //    public string sss;
+    //}
 }

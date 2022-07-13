@@ -14,7 +14,7 @@ public class Test : MonoBehaviour
     }
     public void BtnOnClick()
     {
-        LuaManager.Instance.ClickTest();
+        //LuaManager.Instance.ClickTest();
     }
    
     // Update is called once per frame

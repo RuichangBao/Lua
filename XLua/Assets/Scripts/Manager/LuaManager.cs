@@ -37,26 +37,18 @@ public class LuaManager : Single<LuaManager>
         return data;
     }
 
-    //public void ClickTest()
-    //{
-    //    LuaGlobal p = luaEnv.Global.Get<LuaGlobal>("LuaGlobal");
-    //    Debug.LogError(p.a);
-    //    int a = luaEnv.Global.Get<int>("a");
-    //    Debug.LogError(a);
-    //}
+    public void ClickTest()
+    {
+        LuaGlobal p = luaEnv.Global.Get<LuaGlobal>("LuaGlobal");
+        Debug.LogError(p.a);
+        int a = luaEnv.Global.Get<int>("a");
+        Debug.LogError(a);
+    }
 
-    //class Init
-    //{
-    //    public int num;
-        
-    //}
-    //class LuaGlobal
-    //{
-    //    public int a;
-    //    public Test test;
-    //}
-    //class Test
-    //{
-    //    public string sss;
-    //}
+    class LuaGlobal
+    {
+        public int a;
+        public Test test;
+    }
+
 }

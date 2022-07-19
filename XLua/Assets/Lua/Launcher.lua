@@ -3,5 +3,6 @@ print("Hello Lua")
 
 LuaGlobal = require("Utils.LuaGlobal")
 require("BaseClass")
-LuaGlobal.TestLua = require("TestLua")
+-- LuaGlobal.TestLua = require("TestLua")
+require("TestLua")
 
